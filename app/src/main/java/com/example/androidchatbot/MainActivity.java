@@ -46,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         //Obtain an instance of Retrofit by calling the static method.
         Retrofit retrofit = NetworkClient.getRetrofitClient();
 
-        Call call = WResponse.BotAPIs.postUserMessage(editText.getText().toString());
+        WResponse.BotAPIs botapis = retrofit.create(WResponse.BotAPIs.class);
+
+        Call call = botapis.postUserMessage(editText.getText().toString());
+
+
 
          /*
         This is the line which actually sends a network request. Calling enqueue() executes a call asynchronously. It has two callback listeners which will invoked on the main thread
