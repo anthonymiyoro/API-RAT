@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -43,6 +44,7 @@ public class WResponse {
     public interface BotAPIs{
 
         /* Over here we are sending a POST request with two fields as POST request body params */
+        @FormUrlEncoded
         @POST("/")
         Call < WResponse > postUserMessage(@Field("user-input") String userInput);
     }
